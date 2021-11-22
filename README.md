@@ -12,3 +12,7 @@
 4、redispool简单封装了String和Hash两种类型的redis方法，mget返回[]string,hmgetall返回map[string]string
 
 5、具体使用可以参见main.go文件
+
+# 性能参考：
+
+1000次SET操作，golang用时65-80ms，php-swoole用时100-120ms，相比php的协程性能高出30%-40%左右
