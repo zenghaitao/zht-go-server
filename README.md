@@ -1,5 +1,5 @@
 # zht-go-server
-go redis pool
+golang redis.pool链接池 redis.lock分布式锁
 
 基于redigo的redis pool和分布式锁的实现
 
