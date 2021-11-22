@@ -15,4 +15,10 @@
 
 # 性能参考：
 
-1000次SET操作，golang用时65-80ms，php-swoole用时100-120ms，相比php的协程性能高出30%-40%左右
+1000次SET操作(参考参数:MaxIdle:10,MaxActive:50)
+
+golang用时65-80ms
+
+php-swoole用时100-120ms
+
+golang相比php的协程性能高出30%-40%左右
