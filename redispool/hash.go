@@ -9,8 +9,7 @@ func (r *Redis)HSet( key string, field string, value string ) (reply interface{}
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HSET" , key , field , value)
-	return reply,err
+	return c.Do("HSET" , key , field , value)
 }
 
 /**
@@ -20,8 +19,7 @@ func (r *Redis)HSetNx( key string, field string, value string ) (reply interface
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HSETNX" , key , field , value)
-	return reply,err
+	return c.Do("HSETNX" , key , field , value)
 }
 
 /**
@@ -31,8 +29,7 @@ func (r *Redis)HExists( key string ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HEXISTS" , key)
-	return reply,err
+	return c.Do("HEXISTS" , key)
 }
 
 /**
@@ -43,8 +40,7 @@ func (r *Redis)HDel( args ...interface{} ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HDEL" , args...)
-	return reply,err
+	return c.Do("HDEL" , args...)
 }
 
 /**
@@ -54,8 +50,7 @@ func (r *Redis)HLen( key string ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HLEN" , key)
-	return reply,err
+	return c.Do("HLEN" , key)
 }
 
 /**
@@ -65,8 +60,7 @@ func (r *Redis)HStrLen( key string , field string ) (reply interface{}, err erro
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HSTRLEN" , key , field)
-	return reply,err
+	return c.Do("HSTRLEN" , key , field)
 }
 
 /**
@@ -76,8 +70,7 @@ func (r *Redis)HIncrBy( key string , field string , increment int ) (reply inter
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HINCRBY" , key , field , increment)
-	return reply,err
+	return c.Do("HINCRBY" , key , field , increment)
 }
 
 /**
@@ -87,8 +80,7 @@ func (r *Redis)HIncrByFloat( key string , field string , increment float32 ) (re
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HINCRBYFLOAT" , key , field , increment)
-	return reply,err
+	return c.Do("HINCRBYFLOAT" , key , field , increment)
 }
 
 /**
@@ -99,8 +91,7 @@ func (r *Redis)HMSet( args ...interface{} ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HMSET" , args...)
-	return reply,err
+	return c.Do("HMSET" , args...)
 }
 
 /**
@@ -111,8 +102,7 @@ func (r *Redis)HMGet( args ...interface{} ) (reply []string, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = redis.Strings(c.Do("HMGET" , args...))
-	return reply,err
+	return redis.Strings(c.Do("HMGET" , args...))
 }
 
 /**
@@ -154,7 +144,6 @@ func (r *Redis)HGetAll( key string ) (reply map[string]string, err error){
 				k = ""
 			}
 		}
-		return result,err
 	}
 
 	return result,err
@@ -168,6 +157,6 @@ func (r *Redis)HScan( args ...interface{} ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("HSCAN" , args...)
-	return reply,err
+	return c.Do("HSCAN" , args...)
 }
+

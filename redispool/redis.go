@@ -21,8 +21,7 @@ func (r *Redis)Set( args ...interface{} ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("SET" , args...)
-	return reply,err
+	return c.Do("SET" , args...)
 }
 
 /**
@@ -33,8 +32,7 @@ func (r *Redis)MSet(args ...interface{} ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("MSET" , args...)
-	return reply,err
+	return c.Do("MSET" , args...)
 }
 
 /**
@@ -45,8 +43,7 @@ func (r *Redis)MSetNx(args ...interface{} ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("MSETNX" , args...)
-	return reply,err
+	return c.Do("MSETNX" , args...)
 }
 
 /**
@@ -56,8 +53,7 @@ func (r *Redis)Append(key string,value string ) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("APPEND" , key , value)
-	return reply,err
+	return c.Do("APPEND" , key , value)
 }
 
 /**
@@ -77,8 +73,7 @@ func (r *Redis)SetRange(key string, offset int, value string ) (reply interface{
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("SETRANGE" , key , offset , value)
-	return reply,err
+	return c.Do("SETRANGE" , key , offset , value)
 }
 
 
@@ -106,8 +101,7 @@ func (r *Redis)GetRange(key string, star int, end int ) (reply interface{}, err 
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("GETRANGE" , key , star , end)
-	return reply,err
+	return c.Do("GETRANGE" , key , star , end)
 }
 
 /**
@@ -117,8 +111,7 @@ func (r *Redis)Incr(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("INCR" , key)
-	return reply,err
+	return c.Do("INCR" , key)
 }
 
 /**
@@ -128,8 +121,7 @@ func (r *Redis)Decr(key string , increment int) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("DECR" , key , increment)
-	return reply,err
+	return c.Do("DECR" , key , increment)
 }
 
 /**
@@ -139,8 +131,7 @@ func (r *Redis)IncrBy(key string , increment int) (reply interface{}, err error)
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("INCRBY" , key , increment)
-	return reply,err
+	return c.Do("INCRBY" , key , increment)
 }
 
 /**
@@ -150,8 +141,7 @@ func (r *Redis)DecrBy(key string , increment int) (reply interface{}, err error)
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("DECRBY" , key , increment)
-	return reply,err
+	return c.Do("DECRBY" , key , increment)
 }
 
 /**
@@ -161,8 +151,7 @@ func (r *Redis)IncrByFloat(key string , increment float32) (reply interface{}, e
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("INCRBYFLOAT" , key , increment)
-	return reply,err
+	return c.Do("INCRBYFLOAT" , key , increment)
 }
 
 
@@ -170,24 +159,21 @@ func (r *Redis)Strlen(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("STRLEN" , key)
-	return reply,err
+	return c.Do("STRLEN" , key)
 }
 
 func (r *Redis)Del(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("DEL" , key)
-	return reply,err
+	return c.Do("DEL" , key)
 }
 
 func (r *Redis)Exists(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("EXISTS" , key)
-	return reply,err
+	return c.Do("EXISTS" , key)
 }
 
 /**
@@ -197,8 +183,7 @@ func (r *Redis)Expire(key string , time int) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("EXPIRE" , key , time)
-	return reply,err
+	return c.Do("EXPIRE" , key , time)
 }
 
 /**
@@ -208,8 +193,7 @@ func (r *Redis)PExpire(key string , time int) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("PEXPIRE" , key , time)
-	return reply,err
+	return c.Do("PEXPIRE" , key , time)
 }
 
 /**
@@ -219,8 +203,7 @@ func (r *Redis)ExpireAt(key string , time int) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("EXPIREAT" , key , time)
-	return reply,err
+	return c.Do("EXPIREAT" , key , time)
 }
 
 /**
@@ -230,8 +213,7 @@ func (r *Redis)PExpireAt(key string , time int) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("PEXPIREAT" , key , time)
-	return reply,err
+	return c.Do("PEXPIREAT" , key , time)
 }
 
 /**
@@ -241,8 +223,7 @@ func (r *Redis)TTL(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("TTL" , key)
-	return reply,err
+	return c.Do("TTL" , key)
 }
 
 /**
@@ -252,8 +233,7 @@ func (r *Redis)PTTL(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("PTTL" , key)
-	return reply,err
+	return c.Do("PTTL" , key)
 }
 
 /**
@@ -263,8 +243,7 @@ func (r *Redis)Persist(key string) (reply interface{}, err error){
 	c := r.Pool.Get()
 	defer c.Close()
 
-	reply,err = c.Do("PERSIST" , key)
-	return reply,err
+	return c.Do("PERSIST" , key)
 }
 
 
